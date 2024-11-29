@@ -1,0 +1,40 @@
+﻿@model IEnumerable<IBMSMSPro.Models.Trainer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "TrainerCreate", new {}, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainerNarration)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrainerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrainerNarration)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "TrainerEdit", new { id=item.TrainerID },new { @class= "btn btn-info" }) |
+           
+            @Html.ActionLink("Delete", "TrainerDelete", new { id=item.TrainerID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
